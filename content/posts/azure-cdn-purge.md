@@ -2,7 +2,7 @@
 title = "Fix caching issues on Azure static websites"
 slug = "azure-cdn-purge"
 
-date = "2019-07-27"
+date = "2019-11-22"
 tags = ["hugo", "azure", "devops"]
 categories = ["blog"]
 +++
