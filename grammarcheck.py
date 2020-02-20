@@ -1,39 +1,26 @@
-import os, re
+import os, re, glob, functools
 from bs4 import BeautifulSoup
 from markdown import markdown
 
 CONTENT_DIRECTORY = ".\content"
 MARKDOWN_FILE_EXTENSION = ".md"
 
-def get_files_in_directory(path, list_of_files = list()):
-   
-    for root, dirs, files in os.walk(path):
-        for file in files:
-            files.append(path + "\\" + file)
+def get_markdown_files(directory):
 
-        for dir in dirs:
-            get_files_in_directory(files)
+    directory_list = os.listdir(directory)
+    all_files = list()
 
-    
+    for item in directory_list:
 
+        full_path = os.path.join(directory, item)
 
-def get_markdown_files():
+        if os.path.isdir(full_path):
+            all_files += get_markdown_files(full_path)
+        else:
+            if item.endswith(MARKDOWN_FILE_EXTENSION):
+                all_files.append(full_path)
 
-    for root, dirs, files in os.walk(CONTENT_DIRECTORY):
-
-        markdown_files = []
-
-        for file in files:
-            if file.endswith(MARKDOWN_FILE_EXTENSION):
-                print(file)
-                file_path = os.path.join(root, file)
-                markdown_files.append(file_path)
-        
-        for dir in dirs:
-            
-        
-        return markdown_files
-
+    return all_files
 
 def parse_markdown_file(file_path):
 
@@ -54,7 +41,7 @@ def parse_markdown_file(file_path):
     print(text)
 
 
-files = get_markdown_files()
+files = get_markdown_files(CONTENT_DIRECTORY)
 
 for file in files:
-    parse_markdown_file(file)
+    print(parse_markdown_file(file))
