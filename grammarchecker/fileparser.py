@@ -1,12 +1,10 @@
-""" A CI tool to check the grammar in my hugo blog"""
+"""gets and parses markdown files"""
 
 import os
-import re
-
 from bs4 import BeautifulSoup
 from markdown import markdown
+from grammarchecker import htmlsanitiser
 
-CONTENT_DIRECTORY = ".\\content"
 MARKDOWN_FILE_EXTENSION = ".md"
 
 def get_markdown_files(directory):
@@ -37,18 +35,9 @@ def parse_markdown_file(file_path):
     html = markdown(contents)
 
     # remove code snippets
-    html = re.sub(r'<pre>(.*?)</pre>', '', html)
-    html = re.sub(r'<code>(.*?)</code >', '', html)
-    html = re.sub(r'^((.*\n))*(\+\+\+)', '', html)
-    html = re.sub(r'(~~~)[^(~~~)]*(~~~)', '', html)
+    html = htmlsanitiser.sanitise(html)
 
     soup = BeautifulSoup(html, "html.parser")
     text = ''.join(soup.findAll(text=True))
 
-    print(text)
-
-
-files = get_markdown_files(CONTENT_DIRECTORY)
-
-for file in files:
-    print(parse_markdown_file(file))
+    return text

@@ -13,3 +13,7 @@ $RECYCLE.BIN/
 
 # Python
 env
+
+#VS Code
+*.code-workspace
+settings.json
