@@ -16,7 +16,7 @@ def __remove_preformatted_text(html):
 
 def __remove_code_tags(html):
     html = __remove(r'<code>(.*?)</code >', html)
-    html = __remove(r'(~~~)[^(~~~)]*(~~~)', html)
+    html = __remove(r'(\`\`\`)[^(\`\`\`)]*(\`\`\`)', html)
     return html
 
 def __remove_hugo_tags(html):
@@ -24,5 +24,5 @@ def __remove_hugo_tags(html):
     return html
 
 def __remove(pattern, html):
-    html = re.sub(pattern, '', html)
+    html = re.sub(pattern, '', html, re.MULTILINE | re.VERBOSE)
     return html

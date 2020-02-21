@@ -19,20 +19,20 @@ Once installed, connecting to a vagrant machine is a nice, simple process.
 
 
 Open up your terminal, navigate to the directory containing your .Vagrantfile and enter 
-  ~~~
+  ```
 vagrant ssh-config > vagrant-ssh
-~~~
+```
 This should create a new file in your directory and opening it in notepad should show something resembling:
-~~~
-  Host default
-   HostName 127.0.0.1
-   User vagrant
-   Port 2200
-   UserKnownHostsFile /dev/null
-   StrictHostKeyChecking no
-   PasswordAuthentication no
-  etc
-~~~
+```
+Host default
+  HostName 127.0.0.1
+  User vagrant
+  Port 2200
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no
+  PasswordAuthentication no
+etc
+```
 
 Back in Visual Studio Code, press **F1** and select the command `Remote-SSH: Open Configuration` File then select the relevant configuration file. This should open a config file, and in here you should paste in the details from your vagrant-ssh file that you created earlier. Once this is done, save the config file, enter the command `Remote-SSH: Connect Current Window to host` and then select your host name from the drop-down list that appears. From here, you should now see an icon in the bottom left corner saying something along the lines of `SSH: <hostname>` and this means you are successfully connected remotely to your Vagrant machine!
 

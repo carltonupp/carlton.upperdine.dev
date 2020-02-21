@@ -3,7 +3,7 @@
 import os
 from bs4 import BeautifulSoup
 from markdown import markdown
-from grammarchecker import htmlsanitiser
+import htmlsanitiser
 
 MARKDOWN_FILE_EXTENSION = ".md"
 

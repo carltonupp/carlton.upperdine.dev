@@ -19,16 +19,16 @@ I’m off to a conference in a couple of days, so I need an environment ready to
 
 Create a new folder that you would like to house your environment in, and inside that folder create a new file called Vagrantfile. Open up Vagrantfile in your text editor of choice and paste the following:
 
-~~~
+```ruby
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/trusty64"
 end
-~~~
+```
 
 The above code (Ruby for the curious) is setting the virtual machine’s base image to a Vagrant box that is running Ubuntu 14.04 LTS. Many more of these base images can be found at Vagrant Cloud, or alternatively you could create your own box from scratch if you’re feeling adventurous. From here, the virtual machine is ready to boot up, although it won’t have anything installed on it. The whole point of using Vagrant is that we’ll have a fully fledged development environment available upon creation, without having to do any configuration ourselves, so the next step is to create a shell script that will install the .NET Core SDK. In the same directory as our Vagrantfile, create the following shell script:
 
 
-~~~
+```
 # bootstrap.sh
 
 apt-get update
@@ -41,55 +41,55 @@ dpkg -i packages-microsoft-prod.deb
 apt-get install -y apt-transport-https 
 apt-get update 
 apt-get install -y dotnet-sdk-2.2 
-~~~
+```
 
 Now we just need to reference this script in our Vagrantfile, so it should now look like this:
 
-~~~
+```ruby
 Vagrant.configure("2") do |config|
     config.vm.box = "ubuntu/trusty64"
     config.vm.provision :shell, path: "bootstrap.sh"
 end 
-~~~
+```
 
 Now it’s time to actually provision the machine! Open the terminal and navigate to the directory that holds your Vagrantfile and shell script, then enter the following command:
 
-~~~
+```
 vagrant up
-~~~
+```
 
 This process could take a while, as the first time you provision a box it needs to download the base image from the repository. This will only happen on the first time you provision it, as the box is saved on the machine for future use. 
 
 
 Once the machine has finished, it’s time to connect to it and see if our bootstrap script worked! We connect to a Vagrant machine by using the following command:
 
-~~~
+```
 vagrant ssh
-~~~
+```
 
 And once you are connected to the virtual machine, we can check that dotnet core is installed by running the following command:
 
-~~~
+```
 dotnet --version
-~~~
+```
 
 If you’re seeing something like **2.2.105**, then congratulations! You just set up your first Vagrant environment! From here, you now have a disposable machine that you can run your code in without polluting your host machine with various SDKs and runtimes.
 
 
 Unless you are the kind of psychopath that enjoys editing code via the command line, you’re probably wondering at this point how we create and edit code on our new development environment. Vagrant uses something called Synced Folders that provides a shared interface between your host machine and your guest machine. To see this in action, create a new file in the same directory as your Vagrantfile called HelloWorld.txt. Now, providing you are still connected to your virtual machine via ssh, run the following command:
 
-~~~
+```
 ls /vagrant
-~~~
+```
 
 This will list the contents of your vagrant directory on the virtual machine, and among the items listed should be your freshly created HelloWorld.txt! From here, it’s as simple as opening the directory containing your Vagrantfile in your text editor of choice (I use VS Code) and working from this directory. Something I would recommend is utilising the inbuilt terminal in your text editor to connect to your virtual machine. That way you have a way to build and run your code within the text editor.
 
 
 If you would like to disconnect from your Vagrant environment, simply use the logout command. Alternatively, if you would like to destroy your machine completely (make sure you’re using source control!), you can use the following command:
 
-~~~
+```
 vagrant destroy
-~~~
+```
 
 And it’s as simple as that! I really enjoy using Vagrant for my development environments because it’s so lightweight and quick to get a new environment up and running. I’d highly encourage that you consider Vagrant for your future projects, and after perhaps 15 minutes of work I have a virtual machine that I can keep around just for the conference and then get rid of without having to uninstall anything.
 
