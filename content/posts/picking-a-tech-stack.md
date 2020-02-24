@@ -17,8 +17,15 @@ This exclusivity has created a divide between .NET developers and other ecosyste
 
 The release of .NET Core heralded a new era of .NET development: it is now cross-platform and open source, and the tooling from Microsoft is getting better and better with every version. Developers should be flocking to the ecosystem, discovering how great a language C# is, but they aren't. While the technology has improved, the .NET community is just as dull and homogenous as it always has been, and is still for the most part building the same boring, line-of-business type applications.
 
+# Criteria for a modern tech stack
+
+In order to compare things fairly, I will be looking at each stack's ability to build the following:
+
+* Cloud native web applications
+* 
+
 # Microservices
 
 The .NET world is not completely isolated from external influences, and Microservices are becoming more and more common, for better or worse, but the average new .NET application is a monolithic web application, built with either MVC or a SPA framework such as Angular. I'm not saying this is a bad thing necessarily, I'm just making a comparison with the innovations coming out of other ecosystems.
 
-While you can build Microservices using ASP.NET Core easily enough
+While you can build Microservices using ASP.NET Core easily enough, it leaves a lot to be desired when you compare it to Spring Boot in the Java world.
