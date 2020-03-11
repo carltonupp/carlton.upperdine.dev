@@ -1,10 +1,11 @@
 +++
-title = "Organising your code with C# nested types"
+title = "Organising your code with Nested Types in C#"
 slug = "csharp-nested-types"
 date = "2020-03-11"
 tags = ["C#", ".NET", "code"]
 categories = ["blog"]
 +++
+
 # Introduction
 
 Nested types in C# have been a feature for a very long time, but I'd be lying if I found myself using them often. They have their use cases: for example, they can access private members in the containing class, and they are great for classes that won't be used outside of the file.
@@ -15,13 +16,10 @@ KeyForge is a card game from Fantasy Flight Games where you play with preconstru
 
 You may wonder at this point why I am waffling on about a card game, but I promise that there is a good reason for this. For the code example in this post, I am going to build a KeyForge simulator, or at least a very small part of one.
 
-# Deck Creation Logic
+# Starting Point
 
-KeyForge is a massive game with lots of rules, and I could write an entire blog's worth of content just expressing these rules as code. Unfortunately, I don't have that much time, so for the sake of this blog post I'm going to just focus on the rules for a deck to be valid.
+KeyForge is a massive game with lots of rules, and I could write an entire blog's worth of content just expressing these rules as code. Unfortunately, I don't have that much time, so for the sake of this blog post I'm going to just focus on the rules for a deck to be valid. Just to make this easy to follow, these are the types referenced in the __Deck__ class:
 
-## Types
-
-Just to make this easy to follow, these are the types referenced in the __Deck__ class:
 
 ```csharp
 public class Card
@@ -71,12 +69,12 @@ public class Deck
 
 # Writing some validation logic
 
-Now, good coding principles dictate that we should validate these parameters to ensure that they will create a deck that is valid by KeyForge rules. Lets remind ourselves of these rules:
+Now, good coding principles dictate that we should validate these parameters to ensure that they will create a deck that is valid by KeyForge rules. Lets remind ourselves of these rules. A deck must:
 
-* Consists of 37 cards
-* Composed of three different houses
-* All cards within the deck must be one of the three houses of the deck
-* Valid name
+* Consist of 37 cards
+* Be composed of three different houses
+* Only have cards from the three houses mentioned above
+* Have a valid name
 
 If we were to write these rules as code, it would look like this:
 ```csharp
@@ -86,18 +84,18 @@ public class Deck
     public (House, House, House) Houses { get; set; }
     public IEnumerable<Card> Cards { get; set; }
 
-    public Deck(string name, (House houseOne, House houseTwo, House houseThree) houses, IEnumerable<Card> cards)
+    public Deck(string name, (House, House, House) houses, IEnumerable<Card> cards)
     {
         if (cards.Count() != 37) 
             throw new Exception();
 
-        if (houses.ItemOne == houses.houseTwo || houses.houseOne == houses.houseThree
-            || houses.houseTwo == houses.houseThree)
+        if (houses.Item1 == houses.Item2 || houses.Item1 == houses.Item3
+            || houses.Item2 == houses.Item3)
                 throw new Exception();
 
-        if (cards.Any(card => card.House != houses.houseOne
-            && card.House != houses.houseTwo
-            && card.House != houses.houseThree))
+        if (cards.Any(card => card.House != houses.Item1
+            && card.House != houses.Item2
+            && card.House != houses.Item3))
                 throw new Exception();
 
         if (string.IsNullOrWhiteSpace(name))
@@ -119,20 +117,20 @@ public class Deck
     public (House, House, House) Houses { get; set; }
     public IEnumerable<Card> Cards { get; set; }
 
-    public Deck(string name, (House houseOne, House houseTwo, House houseThree) houses, IEnumerable<Card> cards)
+    public Deck(string name, (House, House, House) houses, IEnumerable<Card> cards)
     {
         bool cardCountIncorrect(IEnumerable<Card> cards) =>
             cards.Count() != 37;
 
-        bool twoHousesTheSame((House houseOne, House houseTwo, House houseThree) houses) =>
-            houses.ItemOne == houses.houseTwo 
-            || houses.houseOne == houses.houseThree
-            || houses.houseTwo == houses.houseThree;
+        bool twoHousesTheSame((House, House, House) houses) =>
+            houses.ItemOne == houses.Item2 
+            || houses.Item1 == houses.Item3
+            || houses.Item2 == houses.Item3;
         
         bool cardsNotInCorrectHouses(IEnumerable<Card> cards) =>
-            cards.Any(card => card.House != houses.houseOne
-                && card.House != houses.houseTwo
-                && card.House != houses.houseThree);
+            cards.Any(card => card.House != houses.Item1
+                && card.House != houses.Item2
+                && card.House != houses.Item3);
 
         bool invalidName(string name) =>
             string.IsNullOrWhiteSpace(name);
@@ -165,20 +163,20 @@ public class Deck
     public (House, House, House) Houses { get; set; }
     public IEnumerable<Card> Cards { get; set; }
 
-    public Deck(string name, (House houseOne, House houseTwo, House houseThree) houses, IEnumerable<Card> cards)
+    public Deck(string name, (House, House, House) houses, IEnumerable<Card> cards)
     {
         bool cardCountIncorrect(IEnumerable<Card> cards) =>
             cards.Count() != 37;
 
-        bool twoHousesTheSame((House houseOne, House houseTwo, House houseThree) houses) =>
-            houses.ItemOne == houses.houseTwo 
-            || houses.houseOne == houses.houseThree
-            || houses.houseTwo == houses.houseThree;
+        bool twoHousesTheSame((House, House, House) houses) =>
+            houses.ItemOne == houses.Item2 
+                || houses.Item1 == houses.Item3
+                    || houses.Item2 == houses.Item3;
         
         bool cardsNotInCorrectHouses(IEnumerable<Card> cards) =>
-            cards.Any(card => card.House != houses.houseOne
-                && card.House != houses.houseTwo
-                && card.House != houses.houseThree);
+            cards.Any(card => card.House != houses.Item1
+                && card.House != houses.Item2
+                    && card.House != houses.Item3);
 
         bool invalidName(string name) =>
             string.IsNullOrWhiteSpace(name);
@@ -194,7 +192,7 @@ public class Deck
 }
 ```
 
-I like local functions: they are one of my favourite features of C# because of their ability to make meaty conditions more readable without polluting the scope of the class with single use methods. The constructor validation should now be far more readable than it was before, which is good, but I think we can do better than this.
+I like local functions; they are one of my favourite features of C# because of their ability to make meaty conditions more readable without polluting the scope of the class with single use methods. The constructor validation should now be far more readable than it was before, which is good, but I think we can do better than this.
 
 # Encapsulating our validation logic
 
@@ -205,32 +203,32 @@ public static class DeckValidation
 {
     private const int DeckCount = 37;
 
-    public static bool InvalidParameters(IEnumerable<Card> cards, (House, House, House) houses, string name) =>
-        InvalidName(name) || InvalidHouses(houses) || InvalidCardCount(cards) || InvalidCardHouses(cards, houses);
+    public static bool InvalidParameters(IEnumerable<Card> cards, 
+        (House, House, House) houses, string name) =>
+            InvalidName(name) || InvalidHouses(houses) || InvalidCardCount(cards) 
+                || InvalidCardHouses(cards, houses);
 
-    private static bool InvalidName(string name) => string.IsNullOrWhiteSpace(name);
+    private static bool InvalidName(string name) =>
+        string.IsNullOrWhiteSpace(name);
 
-    private static bool InvalidHouses((House houseOne, House houseTwo, House houseThree) houses) =>
-        houses.houseOne == houses.houseTwo
-            || houses.houseOne == houses.houseThree
-            || houses.houseTwo == houses.houseThree;
+    private static bool InvalidHouses((House, House, House) houses) =>
+        houses.Item1 == houses.Item2 || houses.Item1 == houses.Item3
+            || houses.Item2 == houses.Item3;
 
     private static bool InvalidCardCount(IEnumerable<Card> cards) =>
         cards.Count() != DeckCount;
 
     private static bool InvalidCardHouses(IEnumerable<Card> cards, 
-        (House houseOne, House houseTwo, House houseThree) houses => 
-            cards.Any(card =>
-                card.House != houses.houseOne
-                && card.House != houses.houseTwo
-                && card.House != houses.houseThree);
+        (House, House, House) houses => 
+            cards.Any(card => card.House != houses.Item1
+                && card.House != houses.Item2 && card.House != houses.Item3);
 }
 ```
 
 So now, our constructor looks like this:
 
 ```csharp
-public Deck(string name, (House houseOne, House houseTwo, House houseThree) houses, IEnumerable<Card> cards)
+public Deck(string name, (House, House, House) houses, IEnumerable<Card> cards)
 {
     if (DeckValidation.InvalidParameters(name, houses, cards)) 
         throw new Exception();
@@ -241,7 +239,8 @@ public Deck(string name, (House houseOne, House houseTwo, House houseThree) hous
 }
 ```
 
-Our constructor now has considerably less noise and is very clear to understand what it is doing. However, in order to finish this off, I'm going to move this class declaration within the `Deck` class, make it private and change it's public method to internal. This means the validation logic specific to this class is not freely available outside of where it's needed and also not causing name pollution within the class:
+Our constructor now has considerably less noise and is very clear to understand what it is doing. However, in order to finish this off, I'm going to move this class declaration within the `Deck` class, make it private and change it's public method to internal. This means the validation logic specific to this class is not freely available outside of where it's needed and also not taking up in the public scope where it is not required.
+
 
 ```csharp
 public class Deck
@@ -264,27 +263,34 @@ public class Deck
     {
         private const int DeckCount = 37;
 
-        internal static bool InvalidParameters(IEnumerable<Card> cards, (House, House, House) houses, string name) =>
-            InvalidName(name) || InvalidHouses(houses) || InvalidCardCount(cards) || InvalidCardHouses(cards, houses);
+        internal static bool InvalidParameters(IEnumerable<Card> cards, 
+            (House, House, House) houses, string name) => InvalidName(name) 
+                || InvalidHouses(houses) || InvalidCardCount(cards) 
+                    || InvalidCardHouses(cards, houses);
 
-        private static bool InvalidName(string name) => string.IsNullOrWhiteSpace(name);
+        private static bool InvalidName(string name) =>
+            string.IsNullOrWhiteSpace(name);
 
-        private static bool InvalidHouses((House houseOne, House houseTwo, House houseThree) houses) =>
-            houses.houseOne == houses.houseTwo
-                || houses.houseOne == houses.houseThree
-                || houses.houseTwo == houses.houseThree;
+        private static bool InvalidHouses((House, House, House) houses) =>
+            houses.Item1 == houses.Item2 || houses.Item1 == houses.Item3
+                || houses.Item2 == houses.Item3;
 
         private static bool InvalidCardCount(IEnumerable<Card> cards) =>
             cards.Count() != DeckCount;
 
         private static bool InvalidCardHouses(IEnumerable<Card> cards, 
             (House, House, House) houses) => 
-                cards.Any(card =>
-                    card.House != houses.Item1
+                cards.Any(card => card.House != houses.Item1
                     && card.House != houses.Item2
-                    && card.House != houses.Item3);
+                        && card.House != houses.Item3);
     }
 }
 ```
 
-Perfect.
+Perfect. I know the line wrapping gets a little bit hairy in the last few examples, but I promise that in an IDE this looks very nice!
+
+# Conclusion
+
+I haven't known anybody else using nested types for this purpose, but I've found it to be a very nice way of containing bits of related code when a public class is not required. I took some inspiration from the old-school [namespace pattern](https://www.oreilly.com/library/view/learning-javascript-design/9781449334840/ch13s15.html) in JavaScript. As the industry moves towards embracing a more functional style of writing C# code, I think this is a good way of keeping your groups of functions both grouped up and isolated from the outside world.
+
+In case this post has got you curious, check out KeyForge [here](https://www.fantasyflightgames.com/en/products/keyforge/)
