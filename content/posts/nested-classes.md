@@ -12,7 +12,7 @@ However, I have found another use case for them that works really well: containi
 
 KeyForge is a card game from Fantasy Flight Games where you play with preconstructed, procedurally-generated decks that are completely unique. Each deck is composed of 37 cards from 3 different __Houses__. Each deck has a totally random name, and no two decks in the entire world are the same.
 
-On a basic level, the aim of the game is to forge 3 Keys
+On a basic level, the aim of the game is to forge 3 __Keys__, which is done by spending __Aether__.
 
 You may wonder at this point why I am waffling on about a card game, but I promise that there is a good reason for this. For the code example in this post, I am going to build a KeyForge simulator, or at least a very small part of one.
 
