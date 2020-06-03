@@ -7,7 +7,7 @@ tags = [".NET", "functional programming", "C#"]
 categories = ["blog"]
 +++
 
-It's been a few months since my last blog post, so my resolution of one 
+It's been a few months since my last blog post, so my new year's resolution of one blog post per month is officially dead in the water! I've had a few posts planned for a while now but in all honesty my motivation just hasn't been there to write. The lockdown has taken a lot from people both physically and mentally, myself included, so I made a deal with myself to take a break from any tech related hobby projects until I felt okay again. The deal worked out quite well for me, as I'm now back with a recharged mind, so expect normal scheduling to resume. Now I'm done pouring my heart out, let's get to the interesting bit!
 
 I'm a big fan of F# and functional programming in general, and when people ask me what I like in particular about F# I immediately mention pattern matching. F# has had incredibly powerful pattern matching support available for a long time, but over time this functionality has been added to C# as well. In this post I will show off a few ways that you can use pattern matching to improve your C# code.
 
