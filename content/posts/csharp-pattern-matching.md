@@ -1,5 +1,5 @@
 +++
-title = "Pattern Matching"
+title = "Pattern Matching in C#"
 slug = "csharp-pattern-matching"
 
 date = "2020-05-13"
@@ -52,9 +52,9 @@ And for those of us programming in a post-LINQ world, we could replace all of th
 numbers.Sum(n => n is int i ? i : 0);
 ```
 
-# Switch up your switches with *where* patterns
+# Switch up your switches with *when* patterns
 
-You can use a *where* pattern on a switch case to add further filtering to the condition. Here we have the traditional FizzBuzz program:
+You can use a *when* pattern on a switch case to add further filtering to the condition. Here we have the traditional FizzBuzz program:
 
 ```csharp
 static void FizzBuzz()
@@ -259,7 +259,7 @@ var femaleDevelopersWorkingForBob = employees.Where(e => e is
 });
 ```
 
-# BONUS: Make your Generic code more exclusive
+# BONUS: Make your generic code more exclusive
 
 Generic classes and interfaces have had the ability to set criteria on the type arguments passed in for a long time, so I'm guessing most of this will be common knowledge. You can use the `where` keyword to specify criteria in order for a type to be passed as an argument. For example:
 ```csharp
@@ -276,6 +276,40 @@ public interface IFactory<T> where T : new()
 
 This is very useful to use when you want your code to be generic, but not _too_ generic.
 
-# Putting everything together
+# Looking forward to the future
 
-All of the techniques above can be used together to do some truly powerful things in C#. Switch statements before pattern matching were mediocre at best, but they now are flexible and very.
+As I was writing this post, Microsoft released their [preview for C# 9](https://devblogs.microsoft.com/dotnet/welcome-to-c-9-0/), which has further expanded the pattern matching toolkit of C#.
+
+### Relational Patterns
+
+You will be able to use relational operators such as `>` as part of your pattern matching statements. For example:
+
+```csharp
+bool IsGreaterThanTen(int x)
+{
+    return x switch
+    {
+        > 100 => true,
+        _ => false
+    };
+}
+```
+
+### Logical Patterns
+
+You will also be able to use logical operators such as `and`, `or`, and `not` in your pattern matches. For example:
+
+```csharp
+bool GreaterThanTenLessThanOneHundred(int x)
+{
+    return x switch
+    {
+        > 10 and < 100 => true,
+        _ => false
+    };
+}
+```
+
+# Final thoughts
+
+As you can see, pattern matching is an incredibly powerful feature set of the C# language and is probably only going to get better as functional programming slowly takes over the world. One thing to be wary of, however, is to make sure you don't sacrifice the readability of your code for the sake of using pattern matching. This is something I am constantly battling with in my own code, and a general rule is to use pattern matching if it improves the readability of the code.
