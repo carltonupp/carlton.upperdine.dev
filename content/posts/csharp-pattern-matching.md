@@ -2,16 +2,18 @@
 title = "Pattern Matching in C#"
 slug = "csharp-pattern-matching"
 
-date = "2020-05-13"
+date = "2020-06-03"
 tags = [".NET", "functional programming", "C#"]
 categories = ["blog"]
 +++
 
+It's been a few months since my last blog post, so my resolution of one 
+
 I'm a big fan of F# and functional programming in general, and when people ask me what I like in particular about F# I immediately mention pattern matching. F# has had incredibly powerful pattern matching support available for a long time, but over time this functionality has been added to C# as well. In this post I will show off a few ways that you can use pattern matching to improve your C# code.
 
-# Type checking with *is* patterns
+# Type checking
 
-You can use the `is` keyword to check that an expression or value maps to a given type, and optionally provide a new variable name to output the result that mapping to. For instance, imagine we have a method that takes a list of nullable integers and we need to return the sum of those integers:
+You can use the `is` keyword to check that an expression or value maps to a given type, and optionally provide a new variable name to output the result of that mapping to. For instance, imagine we have a method that takes a list of nullable integers and we need to return the sum of those integers:
 ```csharp
 static int GetTotal(IEnumerable<int?> numbers)
 {
@@ -52,7 +54,7 @@ And for those of us programming in a post-LINQ world, we could replace all of th
 numbers.Sum(n => n is int i ? i : 0);
 ```
 
-# Switch up your switches with *when* patterns
+# *When* patterns
 
 You can use a *when* pattern on a switch case to add further filtering to the condition. Here we have the traditional FizzBuzz program:
 
@@ -216,7 +218,7 @@ if (coords is (6, 6, 6))
 }
 ```
 
-# The Property pattern
+# Property patterns
 
 How many times have you written code like this?
 
@@ -312,4 +314,4 @@ bool GreaterThanTenLessThanOneHundred(int x)
 
 # Final thoughts
 
-As you can see, pattern matching is an incredibly powerful feature set of the C# language and is probably only going to get better as functional programming slowly takes over the world. One thing to be wary of, however, is to make sure you don't sacrifice the readability of your code for the sake of using pattern matching. This is something I am constantly battling with in my own code, and a general rule is to use pattern matching if it improves the readability of the code.
+As you can see, pattern matching is an incredibly powerful feature set of the C# language and is probably only going to get better as functional programming slowly takes over the world. One thing to be wary of, however, is to make sure you don't sacrifice the readability of your code for the sake of using pattern matching. This is something I am constantly battling with in my own code, and a general rule is to use pattern matching if it improves the readability of the code, but don't sacrifice readability for the sake of being a clever clogs.
