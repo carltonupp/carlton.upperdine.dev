@@ -40,11 +40,6 @@ disqusShortname = ""
     weight = 1
     url = "https://github.com/carltonupp/"
 [[params.social]]
-    name = "Twitter"
-    icon = "fab fa-twitter fa-2x"
-    weight = 3
-    url = "https://twitter.com/_carltonupp/"
-[[params.social]]
     name = "LinkedIn"
     icon = "fab fa-linkedin fa-2x"
     weight = 3

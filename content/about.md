@@ -2,12 +2,17 @@
 title = "About"
 slug = "about"
 +++
-Hello! I'm Carlton: a software engineer based in Sheffield. I’m currently building software for the rail industry at [3Squared](https://www.3squared.com/), and have been working as a software engineer for just over 3 years. I mainly use __C#__ and __ASP.NET__ to build web applications, but I also enjoy exploring other languages such as __F#__ and __Python__. Some of my areas of interest within the industry include:
 
-* Cloud Computing
-* Distributed Systems
-* DevOps Practices
-* Functional Programming
-* Serverless Computing
+**Hello, I'm Carlton!**
 
-When I'm not at work, I study martial arts, collect watches and am an avid reader. I am also very active within the local tech scene, and regularly attend [dotnetsheff](https://dotnetsheff.co.uk/) to keep up with advancements within the industry.
+I'm a Software Engineer based in Sheffield. I have been working as an engineer since 2016, but have been in other roles within the industry since 2011. I am highly proficient in C#, and have used it extensively to build scalable, resilient systems in Microsoft Azure. While my bias is towards back-end and cloud infrastructure related work, I am also comfortable in the front-end using various JavaScript frameworks and TypeScript to build fluid user interfaces.
+
+When I'm not at work, I can be found attending meetups and conferences such as [dotnetsheff](https://dotnetsheff.co.uk), working on personal projects and writing over at [Dev](https://dev.to/carltonupp). Aside from **C#**, I love to explore new languages and am comfortable building APIs in **Node.js**, **F#**, **Python** and eventually **Kotlin**. Other areas of the industry that I find myself drawn to include:
+
+- cloud computing
+- microservices
+- serverless architecture
+- functional programming
+- software delivery
+
+When I'm not sat in front of an IDE I enjoy kickboxing, walking my dogs, drinking good coffee and looking at watches I can't afford.
