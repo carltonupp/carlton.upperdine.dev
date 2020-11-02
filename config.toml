@@ -52,7 +52,7 @@ disqusShortname = ""
 [[menu.main]]
     name = "Blog"
     weight = 1
-    url  = "https://dev.to/carltonupp"
+    url  = "/posts/"
 [[menu.main]]
     name = "About"
     weight = 2
