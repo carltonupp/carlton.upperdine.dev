@@ -4,6 +4,8 @@ import Profile from "./Profile";
 
 
 export default function Layout ({ children } : PropsWithChildren) {
+    const currentYear = new Date().getFullYear();
+    
     return (
         <div className="flex flex-col min-h-screen font-mono">
             <header className="bg-sky-900 mb-8 py-4">
@@ -19,7 +21,7 @@ export default function Layout ({ children } : PropsWithChildren) {
             </main>
             <footer className="bg-sky-900 mt-8 py-4">
                 <div className="container mx-auto flex justify-center text-white">
-                    &copy; 2023 Carlton Upperdine
+                    &copy; {currentYear} Carlton Upperdine
                 </div>
             </footer>
         </div>

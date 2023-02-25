@@ -32,11 +32,11 @@ export default function About() {
         },
         {
             technology: "React",
-            level: 75
+            level: 80
         },
         {
             technology: "Go",
-            level: 75
+            level: 60
         },
         {
             technology: "Java/Kotlin",
@@ -47,8 +47,16 @@ export default function About() {
             level: 75
         },
         {
-            technology: "Everything Else",
-            level: 20
+            technology: "ASP.NET Core",
+            level: 95
+        },
+        {
+            technology: "Azure DevOps",
+            level: 90
+        },
+        {
+            technology: "SQL Server",
+            level: 70
         }
     ]
 
@@ -65,7 +73,7 @@ export default function About() {
             <br />
             <h2 className="text-2xl">Skills</h2>
             <div className="grid grid-cols-4 grid-flow-row auto-rows-max">
-                {proficiencies.map((p, i) => {
+                {proficiencies.sort((a, b) => a.level < b.level ? 1 : -1).map((p, i) => {
                     return (
                         <div key={i} className="mr-5 mt-5">
                             <Skill skillName={p.technology} proficiency={p.level}/>
