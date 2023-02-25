@@ -1,0 +1,23 @@
+$proficiency_green: rgb(101, 221, 131, 0.5);
+$proficiency_amber: rgb(223, 162, 30, 0.5);
+$proficiency_red: rgba(190, 62, 62, 0.5);
+
+.skill {
+    border: 1px solid gray;
+    padding: 5px;
+    border-radius: 0.375rem;
+    text-align: center;
+    
+
+    &:hover {
+        font-weight: bolder;
+        cursor: pointer;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+}
+
+:export {
+    green: $proficiency_green;
+    amber: $proficiency_amber;
+    red: $proficiency_red;
+}

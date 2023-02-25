@@ -17,7 +17,7 @@ export default function Profile () {
           </div>
           <div className="justify-center flex mt-5">
             {socialLinks.map((sl, i) => {
-              return <SocialIcon className="ml-2" key={i} url={sl}
+              return <SocialIcon className="ml-1 mr-1" key={i} url={sl}
                   style={{ height: 30, width: 30}} />
             })}
           </div>
