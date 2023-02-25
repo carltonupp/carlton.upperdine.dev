@@ -16,6 +16,12 @@ $proficiency_red: rgba(190, 62, 62, 0.5);
     }
 }
 
+.companyImage {
+    @media (max-width: 1024px) {
+        display: none;
+    }
+}
+
 :export {
     green: $proficiency_green;
     amber: $proficiency_amber;

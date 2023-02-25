@@ -1,5 +1,6 @@
 import Skill from "@/components/Skill";
 import Image from "next/image";
+import styles from "../styles/about.module.scss";
 
 type Experience = "Highly Proficient" | "Proficient" | "Some Experience" | "Learning";
 
@@ -63,8 +64,7 @@ export default function About() {
     return (
         <div className="mx-auto w-7/12">
             <h2 className="text-2xl">Hello!</h2>
-            <div className="">
-                
+            <div className="mt-5">
                 I am a Software Engineer currently based in the UK and have worked on software in a number of industries 
                 including transport, cyber safety and sports betting. I am particularly interested in system design, functional programming, cloud architecture, and high 
                 scale systems.
@@ -83,9 +83,9 @@ export default function About() {
             </div>
             <br />
             <h2 className="text-2xl">Experience</h2>
-            <div className="flex">
+            <div className="flex m-5">
                 <Image src="https://www.bjss.com/hubfs/bjss_logo_25_Blue%26Navy%20(RGB).svg" alt="company logo"
-                    height={55} width={100} className="mr-5"></Image>
+                    height={55} width={100} className={styles.companyImage + " mr-5"}></Image>
                 <div>
                     <h3 className="text-lg font-bold">Software Engineer</h3>
                     <p className="text-sm font-semibold">September 2022 - Present</p>
