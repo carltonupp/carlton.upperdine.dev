@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PropsWithChildren } from "react";
+import Profile from "./Profile";
 
 
 export default function Layout ({ children } : PropsWithChildren) {
@@ -12,7 +13,10 @@ export default function Layout ({ children } : PropsWithChildren) {
                     </Link>
                 </div>
             </header>
-            <main className="container mx-auto flex-1">{children}</main>
+            <main className="container mx-auto flex-1">
+                <Profile />
+                {children}
+            </main>
             <footer className="bg-sky-900 mt-8 py-4">
                 <div className="container mx-auto flex justify-center text-white">
                     &copy; 2023 Carlton Upperdine
