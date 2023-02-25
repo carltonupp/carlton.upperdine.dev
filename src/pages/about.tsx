@@ -72,7 +72,7 @@ export default function About() {
 
             <br />
             <h2 className="text-2xl">Skills</h2>
-            <div className="grid grid-cols-4 grid-flow-row auto-rows-max">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid-flow-row auto-rows-max">
                 {proficiencies.sort((a, b) => a.level < b.level ? 1 : -1).map((p, i) => {
                     return (
                         <div key={i} className="mr-5 mt-5">
