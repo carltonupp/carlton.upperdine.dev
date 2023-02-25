@@ -13,6 +13,12 @@ export default function Skill(props: {skillName: string, proficiency: number}) {
 const getStyling = (percentage: number) => {
     const remaining = 100 - percentage;
     const color = getFillColour(percentage);
+
+    if (percentage < 50) {
+        // gradient only works 50% and up so I had to get creative...
+        return `linear-gradient(to left, white ${remaining}%, ${color} ${percentage}%)`
+    }
+
     return `linear-gradient(to right, ${color} ${percentage}%, white ${remaining}%)`
 }
 

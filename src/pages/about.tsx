@@ -1,6 +1,5 @@
 import Skill from "@/components/Skill";
 import Image from "next/image";
-import styles from "../styles/about.module.scss";
 
 type Experience = "Highly Proficient" | "Proficient" | "Some Experience" | "Learning";
 
@@ -47,6 +46,10 @@ export default function About() {
             technology: "Spring Boot",
             level: 75
         },
+        {
+            technology: "Everything Else",
+            level: 20
+        }
     ]
 
     return (
