@@ -1,6 +1,6 @@
 import { RecentPost } from "@/components/RecentPost";
 import { PostService } from "@/shared/services";
-import { groupBy } from "@/shared/utilities";
+import Head from "next/head";
 
 export async function getStaticProps() {
   const service = new PostService();
@@ -16,6 +16,9 @@ export async function getStaticProps() {
 export default function Posts(props: { posts: any[] }) {
   return (
     <div className="container">
+      <Head>
+        <title>📝 | Carlton Upperdine</title>
+      </Head>
       <h1 className="flex justify-center text-2xl">Posts</h1>
       {props.posts.length < 1 && (
         <p className="flex justify-center">No posts yet - check in soon!</p>

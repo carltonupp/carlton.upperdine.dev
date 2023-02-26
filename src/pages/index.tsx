@@ -1,4 +1,5 @@
 import { PostService } from "@/shared/services";
+import Head from "next/head";
 import { RecentPost } from "../components/RecentPost";
 
 export async function getStaticProps() {
@@ -14,6 +15,9 @@ export async function getStaticProps() {
 export default function Home(props: { posts: any[] }) {
   return (
     <div className="container">
+      <Head>
+        <title>🏠 | Carlton Upperdine</title>
+      </Head>
       <h1 className="flex justify-center text-2xl">Recent Posts</h1>
       {props.posts.length < 1 && (
         <p className="flex justify-center">No posts yet - check in soon!</p>
