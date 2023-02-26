@@ -1,12 +1,20 @@
+import Job from "@/components/Job";
 import Skill from "@/components/Skill";
 import Image from "next/image";
 import styles from "../styles/about.module.scss";
 
-type Experience = "Highly Proficient" | "Proficient" | "Some Experience" | "Learning";
-
 interface Proficiency {
     technology: string;
     level: number;
+}
+
+interface Experience {
+    company: string;
+    title: string;
+    logo: string;
+    start: string;
+    end?: string;
+    description: string
 }
 
 export default function About() {
@@ -59,6 +67,56 @@ export default function About() {
             technology: "SQL Server",
             level: 70
         }
+    ];
+
+    const experience: Experience[] = [
+        {
+            company: "BJSS",
+            description: "BJSS is the leading technology and engineering consultancy for business. Trusted by our clients, we collaborate with some of the world’s leading organisations to deliver complex, innovative technology, engineering, and industry solutions that millions of people use every day.",
+            logo: "/companies/bjss.svg",
+            start: "September 2022",
+            title: "Senior Software Engineer"
+        },
+        {
+            company: "Smoothwall",
+            description: `Smoothwall is the leading digital safeguarding solutions provider 
+                in UK Education. 12,500 schools, colleges and multi-academy trusts 
+                depend on our technologies to keep their students safe and their 
+                education organisations compliant.`,
+            logo: "/companies/smoothwall.svg",
+            start: "May 2021",
+            end: "May 2022",
+            title: "Senior Software Engineer"
+
+        },
+        {
+            company: "3Squared",
+            description: `
+            At 3Squared, we design, develop and commission integrated software solutions for some of the UKs biggest brands within rail and construction.
+
+            Our teams collaborate across disciplines to provide integrated, compelling multiplatform software solutions that deliver value to our customers.
+            
+            We have a powerful, flexible and integrated software platform designed to support the operations of today’s modern rail operators and support the Digital Railway.
+            `,
+            logo: "/companies/3squared.svg",
+            start: "January 2019",
+            end: "May 2021",
+            title: "Software Engineer"
+        },
+        {
+            company: "MAM Software (acquired by KCS)",
+            description: `
+            Kerridge Commercial Systems (KCS), the parent 
+            company of MAM Software, provides specialised 
+            software, services, and support to deliver fully 
+            integrated trading and business management solutions 
+            to companies in the distributive trades across the world.
+            `,
+            logo: "companies/MAM.svg",
+            start: "May 2016",
+            end: "December 2018",
+            title: "Software Engineer"
+        }
     ]
 
     return (
@@ -83,19 +141,11 @@ export default function About() {
             </div>
             <br />
             <h2 className="text-2xl">Experience</h2>
-            <div className="flex m-5">
-                <Image src="https://www.bjss.com/hubfs/bjss_logo_25_Blue%26Navy%20(RGB).svg" alt="company logo"
-                    height={55} width={100} className={styles.companyImage + " mr-5"}></Image>
-                <div>
-                    <h3 className="text-lg font-bold">Software Engineer</h3>
-                    <p className="text-sm font-semibold">September 2022 - Present</p>
-                    BJSS is the leading technology and engineering consultancy 
-                    for business. Trusted by our clients, we collaborate with 
-                    some of the world’s leading organisations to deliver complex, 
-                    innovative technology, engineering, and industry solutions 
-                    that millions of people use every day.
-                </div>
-            </div>
+            {experience.map((ex, i) => {
+                return (
+                    <Job title={ex.title} description={ex.description} logo={ex.logo} start={ex.start} end={ex.end} key={i} />
+                )
+            })}
         </div>
     )
 }
