@@ -1,3 +1,4 @@
+import { BlogPostMetadata } from "@/shared/models";
 import fs from "fs";
 import matter from "gray-matter";
 import md from "markdown-it";
@@ -15,7 +16,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps(props: { params: { slug: string } }) {
+export async function getStaticProps(props: { params: BlogPostMetadata }) {
   const fileName = fs.readFileSync(`posts/${props.params.slug}.md`, "utf-8");
   const { data: frontmatter, content } = matter(fileName);
   return {
@@ -26,7 +27,10 @@ export async function getStaticProps(props: { params: { slug: string } }) {
   };
 }
 
-export default function PostPage(props: { frontmatter: any; content: any }) {
+export default function PostPage(props: {
+  frontmatter: BlogPostMetadata;
+  content: any;
+}) {
   return (
     <div className="prose mx-auto">
       <h1>{props.frontmatter.title}</h1>
