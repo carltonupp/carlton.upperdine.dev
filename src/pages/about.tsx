@@ -1,21 +1,6 @@
 import Job from "@/components/Job";
 import Skill from "@/components/Skill";
-import Image from "next/image";
-import styles from "../styles/about.module.scss";
-
-interface Proficiency {
-    technology: string;
-    level: number;
-}
-
-interface Experience {
-    company: string;
-    title: string;
-    logo: string;
-    start: string;
-    end?: string;
-    description: string
-}
+import { Experience, Proficiency } from "@/shared/models";
 
 export default function About() {
     const proficiencies: Proficiency[] = [
@@ -69,7 +54,7 @@ export default function About() {
         }
     ];
 
-    const experience: Experience[] = [
+    const jobs: Experience[] = [
         {
             company: "BJSS",
             description: `BJSS is the leading technology and engineering consultancy 
@@ -144,16 +129,9 @@ export default function About() {
             </div>
             <br />
             <h2 className="text-2xl">Experience</h2>
-            {experience.map((ex, i) => {
+            {jobs.map((j, i) => {
                 return (
-                    <Job company={ex.company} 
-                        title={ex.title} 
-                        description={ex.description} 
-                        logo={ex.logo} 
-                        start={ex.start} 
-                        end={ex.end} 
-                        key={i} 
-                    />
+                    <Job job={j} key={i} />
                 )
             })}
         </div>
