@@ -72,7 +72,10 @@ export default function About() {
     const experience: Experience[] = [
         {
             company: "BJSS",
-            description: "BJSS is the leading technology and engineering consultancy for business. Trusted by our clients, we collaborate with some of the world’s leading organisations to deliver complex, innovative technology, engineering, and industry solutions that millions of people use every day.",
+            description: `BJSS is the leading technology and engineering consultancy 
+                for business. Trusted by our clients, we collaborate with some of the 
+                world’s leading organisations to deliver complex, innovative technology, 
+                engineering, and industry solutions that millions of people use every day.`,
             logo: "/companies/bjss.svg",
             start: "September 2022",
             title: "Senior Software Engineer"
@@ -143,7 +146,14 @@ export default function About() {
             <h2 className="text-2xl">Experience</h2>
             {experience.map((ex, i) => {
                 return (
-                    <Job title={ex.title} description={ex.description} logo={ex.logo} start={ex.start} end={ex.end} key={i} />
+                    <Job company={ex.company} 
+                        title={ex.title} 
+                        description={ex.description} 
+                        logo={ex.logo} 
+                        start={ex.start} 
+                        end={ex.end} 
+                        key={i} 
+                    />
                 )
             })}
         </div>

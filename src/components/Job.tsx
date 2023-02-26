@@ -7,6 +7,7 @@ interface JobProps {
     end?: string;
     logo: string; 
     description: string;
+    company: string;
 }
 
 export default function Job(props: JobProps) {
@@ -16,6 +17,7 @@ export default function Job(props: JobProps) {
                     alt="company logo" height={100} width={100} className={styles.companyImage + " mr-5"}></Image>
                 <div>
                     <h3 className="text-lg font-bold">{props.title}</h3>
+                    <p className="text-sm font-bold">{props.company}</p>
                     <p className="text-sm font-semibold">{props.start} - {props.end ?? 'Present'}</p>
                     {props.description}
                 </div>
