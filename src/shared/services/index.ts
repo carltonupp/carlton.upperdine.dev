@@ -7,7 +7,7 @@ interface RecentPost {
 }
 
 export class PostService {
-    getLastFive(): RecentPost[] {
+    getList(): RecentPost[] {
         const files = fs.readdirSync("posts");
 
         const posts = files.map((fileName) => {
@@ -27,6 +27,12 @@ export class PostService {
                 slug: p.slug,
                 frontmatter: p.frontmatter
             }
+        }).sort((a, b) => {
+            const aDate = new Date(a.frontmatter.date);
+            const bDate = new Date(b.frontmatter.date);
+
+            if (aDate < bDate) return 1
+            return -1;
         });
     }
 }
