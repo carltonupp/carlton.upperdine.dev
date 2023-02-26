@@ -17,7 +17,7 @@ export default function Posts(props: { posts: any[] }) {
   return (
     <div className="container">
       <Head>
-        <title>📝 | Carlton Upperdine</title>
+        <title>/home/carlton/posts</title>
       </Head>
       <h1 className="flex justify-center text-2xl">Posts</h1>
       {props.posts.length < 1 && (

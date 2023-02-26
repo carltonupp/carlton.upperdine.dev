@@ -106,7 +106,7 @@ export default function About() {
   return (
     <div className="mx-auto w-7/12">
       <Head>
-        <title>🧔🏻‍♂️ | Carlton Upperdine</title>
+        <title>/home/carlton/about</title>
       </Head>
       <h2 className="text-2xl">Hello!</h2>
       <div className="mt-5">
