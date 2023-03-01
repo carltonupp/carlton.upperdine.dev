@@ -1,6 +1,5 @@
 import { Experience } from "@/shared/models";
 import Image from "next/image";
-import styles from "../styles/about.module.scss";
 
 export default function Job(props: { job: Experience }) {
   return (
@@ -10,7 +9,7 @@ export default function Job(props: { job: Experience }) {
         alt="company logo"
         height={100}
         width={100}
-        className={styles.companyImage + " mr-5"}
+        className={"mr-5 hidden md:block"}
       ></Image>
       <div>
         <h3 className="text-lg font-bold">{props.job.title}</h3>
