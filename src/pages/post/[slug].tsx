@@ -38,6 +38,8 @@ export default function PostPage(props: {
         <title>{props.frontmatter.title} by Carlton Upperdine</title>
       </Head>
       <h1>{props.frontmatter.title}</h1>
+      <p className="text-md font-bold">Pushed: {props.frontmatter.date}</p>
+      ---
       <div dangerouslySetInnerHTML={{ __html: md().render(props.content) }} />
     </div>
   );
