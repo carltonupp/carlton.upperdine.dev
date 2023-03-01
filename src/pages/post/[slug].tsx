@@ -2,6 +2,7 @@ import { BlogPostMetadata } from "@/shared/models";
 import fs from "fs";
 import matter from "gray-matter";
 import md from "markdown-it";
+import Head from "next/head";
 
 export async function getStaticPaths() {
   const files = fs.readdirSync("posts");
@@ -33,6 +34,9 @@ export default function PostPage(props: {
 }) {
   return (
     <div className="prose mx-auto">
+      <Head>
+        <title>{props.frontmatter.title} by Carlton Upperdine</title>
+      </Head>
       <h1>{props.frontmatter.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: md().render(props.content) }} />
     </div>
