@@ -5,7 +5,7 @@ export default function GoogleAnalytics() {
     <>
       <Script
         strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_KEY}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=G-WGK06NVVVH`}
       />
       <Script
         id="google-analytics"
@@ -16,7 +16,7 @@ export default function GoogleAnalytics() {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', '${process.env.NEXT_PUBLIC_GA_KEY}', {
+            gtag('config', 'G-WGK06NVVVH', {
                 page_path: window.location.pathname,
             });
             `,
