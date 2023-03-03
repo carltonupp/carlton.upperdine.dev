@@ -46,8 +46,8 @@ export default function About() {
       level: 95,
     },
     {
-      technology: "Azure DevOps",
-      level: 90,
+      technology: "Node.js",
+      level: 80,
     },
     {
       technology: "SQL Server",
