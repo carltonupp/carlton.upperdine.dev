@@ -8,7 +8,6 @@ export interface RecentPost {
 }
 
 export {
-    PostService,
     JobService,
     SkillService
 }
