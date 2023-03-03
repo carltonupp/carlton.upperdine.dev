@@ -1,24 +1,28 @@
 import JobCard from "@/components/JobCard";
 import SkillCard from "@/components/SkillCard";
-import { SkillService } from "@/shared/services";
+import { Job, Skill } from "@/shared/models";
+import { JobService, SkillService } from "@/shared/services";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 
 export default function About() {
-  const skills = SkillService.getAll();
-  const [jobs, setJobs] = useState([]);
+  const [jobs, setJobs] = useState([] as Job[]);
+  const [skills, setSkills] = useState([] as Skill[]);
 
   useEffect(() => {
-    fetch("/api/jobs")
-      .then((res) => res.json())
-      .then((body) => {
-        setJobs(body);
-      });
-  }, [jobs]);
+    function populate() {
+      Promise.all([JobService.getAll(), SkillService.getAll()]).then(
+        ([jobs, skills]) => {
+          setJobs(jobs);
+          setSkills(skills);
+        }
+      );
+    }
 
-  if (!jobs.length) {
-    return null;
-  }
+    if (!jobs.length || !skills.length) {
+      populate();
+    }
+  }, [jobs, skills]);
 
   return (
     <div className="mx-auto w-10/12 md:w-7/12">
