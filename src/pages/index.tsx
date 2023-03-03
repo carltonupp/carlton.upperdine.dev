@@ -1,4 +1,4 @@
-import { PostService } from "@/shared/services";
+import { PostService } from "@/shared/services/PostService";
 import Head from "next/head";
 import { RecentPost } from "../components/RecentPost";
 

@@ -1,24 +1,10 @@
-export interface Experience {
-    company: string;
-    title: string;
-    logo: string;
-    start: string;
-    end?: string;
-    description: string
-}
+import { BlogPost, BlogPostMetadata } from "./BlogPost";
+import { Job } from "./Job";
+import { Skill } from "./Skill";
 
-export interface Proficiency {
-    technology: string;
-    level: number;
-}
-
-export interface BlogPostMetadata {
-    slug: string;
-    date: string;
-    title: string;
-    blurb: string;
-}
-
-export interface BlogPost {
-    metadata: BlogPostMetadata;
+export type {
+    BlogPost,
+    BlogPostMetadata,
+    Job,
+    Skill
 }

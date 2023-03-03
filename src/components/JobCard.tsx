@@ -1,7 +1,7 @@
-import { Experience } from "@/shared/models";
+import { Job } from "@/shared/models";
 import Image from "next/image";
 
-export default function Job(props: { job: Experience }) {
+export default function JobCard(props: { job: Job }) {
   return (
     <div className="flex my-5">
       <Image

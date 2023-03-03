@@ -1,6 +1,4 @@
-import styles from "../styles/about.module.scss";
-
-export default function Skill(props: {
+export default function SkillCard(props: {
   skillName: string;
   proficiency: number;
 }) {
@@ -30,11 +28,11 @@ const getStyling = (percentage: number) => {
 
 const getFillColour = (percentage: number) => {
   if (percentage > 80) {
-    return styles.green;
+    return "rgba(101, 221, 131, 0.5)";
   }
   if (percentage > 50) {
-    return styles.amber;
+    return "rgba(223, 162, 30, 0.5)";
   }
 
-  return styles.red;
+  return "rgba(190, 62, 62, 0.5)";
 };
