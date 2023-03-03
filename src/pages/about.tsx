@@ -104,7 +104,7 @@ export default function About() {
   ];
 
   return (
-    <div className="mx-auto w-96 md:w-7/12">
+    <div className="mx-auto w-10/12 md:w-7/12">
       <Head>
         <title>/home/carlton/about</title>
       </Head>

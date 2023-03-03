@@ -33,7 +33,7 @@ export default function PostPage(props: {
   content: any;
 }) {
   return (
-    <div className="prose mx-auto">
+    <div className="prose mx-auto w-10/12">
       <Head>
         <title>{props.frontmatter.title} by Carlton Upperdine</title>
       </Head>
