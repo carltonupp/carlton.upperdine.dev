@@ -4,7 +4,7 @@ import { RecentPost } from "./index";
 
 
 export class PostService {
-    static getList(): RecentPost[] {
+    getList(): RecentPost[] {
         const files = fs.readdirSync("posts");
 
         const posts = files.map((fileName) => {

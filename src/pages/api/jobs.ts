@@ -1,4 +1,5 @@
-import { Job } from "../models";
+import { Job } from '@/shared/models'
+import type { NextApiRequest, NextApiResponse } from 'next'
 
 const jobs: Job[] = [
     {
@@ -48,12 +49,9 @@ const jobs: Job[] = [
     },
   ];
 
-
-export class JobService {
-    static async getAll(): Promise<Job[]> { 
-        const resp = await fetch('/api/jobs')
-        const jobs = await resp.json() as Job[]
-
-        return jobs;
-    }
-}
+export default function handler(
+    req: NextApiRequest,
+    res: NextApiResponse<Job[]>
+  ) {
+    res.status(200).json([...jobs])
+  }

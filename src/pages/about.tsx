@@ -1,11 +1,24 @@
 import JobCard from "@/components/JobCard";
 import SkillCard from "@/components/SkillCard";
-import { JobService, SkillService } from "@/shared/services";
+import { SkillService } from "@/shared/services";
 import Head from "next/head";
+import { useEffect, useState } from "react";
 
 export default function About() {
   const skills = SkillService.getAll();
-  const jobs = JobService.getAll();
+  const [jobs, setJobs] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/jobs")
+      .then((res) => res.json())
+      .then((body) => {
+        setJobs(body);
+      });
+  }, [jobs]);
+
+  if (!jobs.length) {
+    return null;
+  }
 
   return (
     <div className="mx-auto w-10/12 md:w-7/12">
@@ -35,7 +48,7 @@ export default function About() {
       </div>
       <br />
       <h2 className="text-2xl">Experience</h2>
-      {jobs.map((j, i) => {
+      {jobs?.map((j, i) => {
         return <JobCard job={j} key={i} />;
       })}
     </div>
