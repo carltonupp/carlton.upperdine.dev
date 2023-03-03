@@ -1,3 +1,4 @@
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
@@ -7,6 +8,7 @@ export default function Document() {
         <meta name="keywords" content="title, meta, nextjs" />
         <meta name="author" content="Carlton Upperdine" />
       </Head>
+      <GoogleAnalytics />
       <body>
         <Main />
         <NextScript />
