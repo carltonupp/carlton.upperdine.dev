@@ -3,8 +3,7 @@ import { PostService } from "@/shared/services";
 import Head from "next/head";
 
 export async function getStaticProps() {
-  const service = new PostService();
-  const posts = service.getList();
+  const posts = PostService.getList();
 
   return {
     props: {

@@ -1,6 +1,6 @@
 import styles from "../styles/about.module.scss";
 
-export default function Skill(props: {
+export default function SkillCard(props: {
   skillName: string;
   proficiency: number;
 }) {

@@ -3,8 +3,7 @@ import Head from "next/head";
 import { RecentPost } from "../components/RecentPost";
 
 export async function getStaticProps() {
-  const service = new PostService();
-  const posts = service.getList().slice(0, 5);
+  const posts = PostService.getList().slice(0, 5);
   return {
     props: {
       posts,
