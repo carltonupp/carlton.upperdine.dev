@@ -1,17 +1,12 @@
-import { type } from "os";
-
 interface BlogPostMetadata {
-    slug: string;
-    date: string;
-    title: string;
-    blurb: string;
+  slug: string;
+  date: string;
+  title: string;
+  blurb: string;
 }
 
 interface BlogPost {
-    metadata: BlogPostMetadata;
+  metadata: BlogPostMetadata;
 }
 
-export type {
-    BlogPost,
-    BlogPostMetadata
-}
+export type { BlogPost, BlogPostMetadata };
