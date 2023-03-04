@@ -40,7 +40,7 @@ export default function PostPage(props: {
       </Head>
       <h2 className="text-center">{props.frontmatter.title}</h2>
       <section className="text-md font-bold text-center">
-        Published: {props.frontmatter.date}
+        Published: {new Date(props.frontmatter.date).toDateString()}
       </section>
       <div
         dangerouslySetInnerHTML={{ __html: md().render(props.content) }}
