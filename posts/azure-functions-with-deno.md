@@ -195,4 +195,16 @@ func azure functionapp publish deno-http
 
 Alternatively, you can use the Azure Functions extension in VS Code to deploy your code if you prefer.
 
-I appreciate that there are a lot of different ways of deploying Azure Functions, so I'm avoiding any topics such as CI or Containers in the aim of not massively widening the scope of this post, but I may visit those topics in the future.
+I appreciate that there are a lot of different ways of deploying Azure Functions, so I'm avoiding the topic of CI in the aim of not expanding the scope of this post too far.
+
+## Final Thoughts
+
+I have written a lot of serverless functions in my career, but being able to use custom languages and runtimes may just change how we write them going forward. I understand that Go and Rust are frequently used with Azure Functions in this context, but the possibilities for language are endless. For example, you are able to write functions with scientific languages like R, which probably has a lot of use-cases in the data science world.
+
+Deno is doing a lot of things right, and it makes me happy that I can pick it up so quickly and build something like an Azure Function with minimal overhead.
+
+Also worth a mention is that Deno has it's own serverless platform to run on called [Deno Deploy](https://deno.com/deploy) that apparently requires even less set up than Azure Functions. I can't speak from personal experience as I haven't used it myself, but based on my experience so far with Deno I may do soon!
+
+You can find the source code for this blog post [here](https://github.com/carltonupp/deno-functions).
+
+Thanks for reading!
