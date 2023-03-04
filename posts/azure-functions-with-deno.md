@@ -199,7 +199,11 @@ I appreciate that there are a lot of different ways of deploying Azure Functions
 
 ## Final Thoughts
 
-I have written a lot of serverless functions in my career, but being able to use custom languages and runtimes may just change how we write them going forward. I understand that Go and Rust are frequently used with Azure Functions in this context, but the possibilities for language are endless. For example, you are able to write functions with scientific languages like R, which probably has a lot of use-cases in the data science world.
+I have written a lot of serverless functions in my career, but being able to use custom languages and runtimes may just change how we write them going forward. 
+
+I understand that Go and Rust are frequently used with Azure Functions in this context, but the possibilities for language are endless. 
+
+For example, you are able to write functions with scientific languages like R, which probably has a lot of use-cases in the data science world.
 
 Deno is doing a lot of things right, and it makes me happy that I can pick it up so quickly and build something like an Azure Function with minimal overhead.
 
