@@ -1,5 +1,6 @@
 import { BlogPostMetadata } from "@/shared/models";
 import { DiscussionEmbed } from "disqus-react";
+const isProduction = process.env.NODE_ENV === "production";
 
 export default function Comments(props: { post: BlogPostMetadata }) {
   const disqusShortname = "carlton-upperdine-dev";
@@ -10,7 +11,9 @@ export default function Comments(props: { post: BlogPostMetadata }) {
   };
   return (
     <div>
-      <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
+      {isProduction && (
+        <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
+      )}
     </div>
   );
 }
