@@ -11,9 +11,7 @@ export default function Comments(props: { post: BlogPostMetadata }) {
   };
   return (
     <div>
-      {isProduction && (
-        <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
-      )}
+      <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
     </div>
   );
 }
