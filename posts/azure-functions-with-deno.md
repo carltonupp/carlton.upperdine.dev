@@ -79,7 +79,7 @@ I have gone with the name of `deno-http` but feel free to call it whatever you w
 }
 ```
 
-This file is used to declare the bindings for the function, along with the authentication method, direction and method. We don't need to touch this file any further, but if you'd like to remove the `post` entry from `methods` we won't need it for this use-case.
+This file is used to declare the bindings for the function, along with the authentication method, direction and method. We don't need to touch this file any further, but if you'd like to, you can remove the `post` entry from `methods` as we won't need it for our use-case.
 
 Now it's time to write our actual function code. Create a file in the `deno-http` directory called `deno-http.ts`. Again, the name doesn't matter here, just keep it in mind when it's referenced in future. Populate your file with the following code:
 
