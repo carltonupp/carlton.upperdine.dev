@@ -38,10 +38,14 @@ export default function PostPage(props: {
       <Head>
         <title>{props.frontmatter.title} by Carlton Upperdine</title>
       </Head>
-      <h1>{props.frontmatter.title}</h1>
-      <p className="text-md font-bold">Pushed: {props.frontmatter.date}</p>
-      ---
-      <div dangerouslySetInnerHTML={{ __html: md().render(props.content) }} />
+      <h2 className="text-center">{props.frontmatter.title}</h2>
+      <section className="text-md font-bold text-center">
+        Published: {props.frontmatter.date}
+      </section>
+      <div
+        dangerouslySetInnerHTML={{ __html: md().render(props.content) }}
+        className="border-t-2 border-b-2 mt-5"
+      />
       <Comments post={props.frontmatter} />
     </div>
   );
