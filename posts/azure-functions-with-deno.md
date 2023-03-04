@@ -129,7 +129,7 @@ We should now have an executable called `deno-http` in the root of our repositor
 
 ## Running our executable as an Azure Function
 
-Now that we've got an executable for our application, we need to point our Function application to run it. We do that by modifying the `host.json` file. Open the file and paste the following in there:
+Now that we've got an executable for our application, we need to point our Function application to run it. We do that by modifying the `host.json` file. Open the file and replace the contents with the following:
 
 ```json
 {
