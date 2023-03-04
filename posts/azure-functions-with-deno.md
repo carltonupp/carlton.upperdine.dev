@@ -187,7 +187,7 @@ I can now access my function using the web browser or curl, and if this works, y
 
 ## Deploying to Azure
 
-Providing you have your Azure account set up properly, you can then deploy your function to Azure using the following command:
+Providing you have your Azure account set up properly, you can then deploy your function using the following command:
 
 ```
 func azure functionapp publish deno-http
