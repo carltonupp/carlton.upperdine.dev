@@ -1,6 +1,6 @@
 ---
 title: "A Fresh Lick of Paint"
-blurb: "New site, new outlook, same author"
+blurb: "New site, new outlook, same author."
 date: "2023-03-01"
 ---
 
