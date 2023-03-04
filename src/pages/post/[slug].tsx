@@ -1,3 +1,4 @@
+import Comments from "@/components/Comments";
 import { BlogPostMetadata } from "@/shared/models";
 import fs from "fs";
 import matter from "gray-matter";
@@ -41,6 +42,7 @@ export default function PostPage(props: {
       <p className="text-md font-bold">Pushed: {props.frontmatter.date}</p>
       ---
       <div dangerouslySetInnerHTML={{ __html: md().render(props.content) }} />
+      <Comments post={props.frontmatter} />
     </div>
   );
 }
