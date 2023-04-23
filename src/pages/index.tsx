@@ -16,7 +16,7 @@ export default function Home(props: { posts: any[] }) {
   return (
     <div className="container">
       <Head>
-        <title>/home/carlton</title>
+        <title>Home | Carlton Upperdine</title>
       </Head>
       <h1 className="flex justify-center text-2xl">Recent Posts</h1>
       {props.posts.length < 1 && (
