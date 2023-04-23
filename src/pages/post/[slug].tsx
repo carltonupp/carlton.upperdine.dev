@@ -34,19 +34,21 @@ export default function PostPage(props: {
   content: any;
 }) {
   return (
-    <div className="prose mx-auto w-10/12">
+    <>
       <Head>
         <title>{props.frontmatter.title} by Carlton Upperdine</title>
       </Head>
-      <h2 className="text-center">{props.frontmatter.title}</h2>
-      <section className="text-md font-bold text-center">
-        Published: {new Date(props.frontmatter.date).toDateString()}
-      </section>
-      <div
-        dangerouslySetInnerHTML={{ __html: md().render(props.content) }}
-        className="border-t-2 border-b-2 mt-5"
-      />
-      <Comments post={props.frontmatter} />
-    </div>
+      <div className="prose mx-auto w-10/12">
+        <h2 className="text-center">{props.frontmatter.title}</h2>
+        <section className="text-md font-bold text-center">
+          Published: {new Date(props.frontmatter.date).toDateString()}
+        </section>
+        <div
+          dangerouslySetInnerHTML={{ __html: md().render(props.content) }}
+          className="border-t-2 border-b-2 mt-5"
+        />
+        <Comments post={props.frontmatter} />
+      </div>
+    </>
   );
 }

@@ -1,6 +1,7 @@
 import { PostService } from "@/shared/services/PostService";
 import Head from "next/head";
 import { RecentPost } from "../components/RecentPost";
+import { buildPageTitle } from "@/shared/utilities";
 
 export async function getStaticProps() {
   const service = new PostService();
@@ -14,19 +15,25 @@ export async function getStaticProps() {
 
 export default function Home(props: { posts: any[] }) {
   return (
-    <div className="container">
+    <>
       <Head>
-        <title>Home | Carlton Upperdine</title>
+        <title>{buildPageTitle("Home")}</title>
       </Head>
-      <h1 className="flex justify-center text-2xl">Recent Posts</h1>
-      {props.posts.length < 1 && (
-        <p className="flex justify-center">No posts yet - check in soon!</p>
-      )}
-      <div className="grid justify-center mt-3">
-        {props.posts.map((p) => (
-          <RecentPost key={p.slug} slug={p.slug} frontmatter={p.frontmatter} />
-        ))}
+      <div className="container">
+        <h1 className="flex justify-center text-2xl">Recent Posts</h1>
+        {props.posts.length < 1 && (
+          <p className="flex justify-center">No posts yet - check in soon!</p>
+        )}
+        <div className="grid justify-center mt-3">
+          {props.posts.map((p) => (
+            <RecentPost
+              key={p.slug}
+              slug={p.slug}
+              frontmatter={p.frontmatter}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
