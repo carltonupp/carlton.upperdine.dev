@@ -6,9 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "cypress:open": "cypress open",
-    "test": "start-server-and-test dev 3000 cypress:open"
+    "lint": "next lint"
   },
   "dependencies": {
     "@types/node": "18.14.1",
@@ -32,12 +30,10 @@
     "@types/gtag.js": "^0.0.12",
     "@types/markdown-it": "^12.2.3",
     "autoprefixer": "^10.4.13",
-    "cypress": "^12.7.0",
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
     "postcss": "^8.4.21",
     "sass": "^1.58.3",
-    "start-server-and-test": "^2.0.0",
     "tailwindcss": "^3.2.7"
   }
 }
