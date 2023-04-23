@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import { RenderResult, render } from "@testing-library/react";
 import { JobCard } from "../../src/components";
-import { Job } from "@/shared/models";
+import { Job } from "@/core/jobs";
 
 describe("Job Card Component", () => {
   let body: RenderResult;

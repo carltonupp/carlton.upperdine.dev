@@ -1,4 +1,4 @@
-import { getStyling } from "@/core/utils";
+import { getStyling } from "../core/utils";
 
 export default function SkillCard(props: {
   skillName: string;

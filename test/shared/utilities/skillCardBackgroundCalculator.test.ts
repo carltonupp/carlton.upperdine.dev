@@ -1,4 +1,4 @@
-import { getStyling } from "../../../src/shared/utilities/skillCardBackgroundCalculator";
+import { getStyling } from "../../../src/core/utils";
 
 test("returns green linear gradient given proficiency > 80", () => {
   expect(getStyling(81)).toBe(
