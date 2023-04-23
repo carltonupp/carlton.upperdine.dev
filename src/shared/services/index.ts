@@ -3,11 +3,8 @@ import { PostService } from "./PostService";
 import { SkillService } from "./SkillService";
 
 export interface RecentPost {
-    slug: string;
-    frontmatter: any;
+  slug: string;
+  frontmatter: any;
 }
 
-export {
-    JobService,
-    SkillService
-}
+export { JobService, SkillService };
