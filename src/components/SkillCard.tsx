@@ -1,4 +1,4 @@
-import { getStyling } from "../shared/utilities/skillCardBackgroundCalculator";
+import { getStyling } from "@/core/utils";
 
 export default function SkillCard(props: {
   skillName: string;

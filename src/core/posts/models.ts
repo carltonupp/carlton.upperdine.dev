@@ -3,4 +3,9 @@ export interface BlogPost {
     frontmatter: any;
 }
 
+export interface BlogPostMetadata {
+    slug: string;
+    title: string;
+}
+
 export type FileTuple<T> = [string, T]

@@ -1,4 +1,5 @@
 import Comments from "@/components/Comments";
+import { BlogPostMetadata } from "@/core/posts";
 import fs from "fs";
 import matter from "gray-matter";
 import md from "markdown-it";
@@ -17,7 +18,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps(props: { params: any }) {
+export async function getStaticProps(props: { params: BlogPostMetadata }) {
   const fileName = fs.readFileSync(`posts/${props.params.slug}.md`, "utf-8");
   const { data: frontmatter, content } = matter(fileName);
   return {

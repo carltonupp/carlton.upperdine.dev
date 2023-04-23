@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { RecentPost } from "@/components/RecentPost";
-import { buildPageTitle } from "@/shared/utilities";
+import { buildPageTitle } from "@/core/utils";
 import { getPosts } from "@/core/posts";
 
 export async function getStaticProps() {

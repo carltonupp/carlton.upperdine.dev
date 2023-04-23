@@ -2,7 +2,7 @@ import JobCard from "@/components/JobCard";
 import SkillCard from "@/components/SkillCard";
 import { getJobs, Job } from "@/core/jobs";
 import { getSkills, Skill } from "@/core/skills";
-import { buildPageTitle } from "@/shared/utilities";
+import { buildPageTitle } from "@/core/utils";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 

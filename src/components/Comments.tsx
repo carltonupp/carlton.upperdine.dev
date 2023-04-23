@@ -1,4 +1,4 @@
-import { BlogPostMetadata } from "@/shared/models";
+import { BlogPostMetadata } from "@/core/posts";
 import { DiscussionEmbed } from "disqus-react";
 
 export default function Comments(props: { post: BlogPostMetadata }) {

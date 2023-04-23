@@ -1,5 +1,6 @@
 import { RecentPost } from "@/components/RecentPost";
 import { BlogPost, getPosts } from "@/core/posts";
+import { buildPageTitle } from "@/core/utils";
 import Head from "next/head";
 
 export async function getStaticProps() {
@@ -16,7 +17,7 @@ export default function Posts(props: { posts: BlogPost[] }) {
   return (
     <>
       <Head>
-        <title>Posts | Carlton Upperdine</title>
+        <title>{buildPageTitle("Posts")}</title>
       </Head>
       <div className="container">
         <h1 className="flex justify-center text-2xl">Posts</h1>

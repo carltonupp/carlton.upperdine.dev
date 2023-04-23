@@ -1,4 +1,4 @@
-import { Job } from "@/shared/models";
+import { Job } from "@/core/jobs";
 import Image from "next/image";
 
 interface JobCardProps {
