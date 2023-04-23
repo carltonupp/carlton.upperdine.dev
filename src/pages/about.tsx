@@ -1,18 +1,18 @@
 import JobCard from "@/components/JobCard";
 import SkillCard from "@/components/SkillCard";
-import { Job, Skill } from "@/shared/models";
-import { JobService, SkillService } from "@/shared/services";
+import { getJobs, Job } from "@/core/jobs";
+import { getSkills, Skill } from "@/core/skills";
 import { buildPageTitle } from "@/shared/utilities";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 
 export default function About() {
-  const [jobs, setJobs] = useState([] as Job[]);
-  const [skills, setSkills] = useState([] as Skill[]);
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [skills, setSkills] = useState<Skill[]>([]);
 
   useEffect(() => {
     function populate() {
-      Promise.all([JobService.getAll(), SkillService.getAll()]).then(
+      Promise.all([getJobs(), getSkills()]).then(
         ([jobs, skills]) => {
           setJobs(jobs);
           setSkills(skills);
@@ -20,7 +20,7 @@ export default function About() {
       );
     }
 
-    if (!jobs.length || !skills.length) {
+    if (!jobs.length || !skills?.length) {
       populate();
     }
   }, [jobs, skills]);

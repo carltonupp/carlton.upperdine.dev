@@ -1,5 +1,5 @@
 import { RecentPost } from "@/components/RecentPost";
-import { getPosts } from "@/core/posts";
+import { BlogPost, getPosts } from "@/core/posts";
 import Head from "next/head";
 
 export async function getStaticProps() {
@@ -12,7 +12,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function Posts(props: { posts: any[] }) {
+export default function Posts(props: { posts: BlogPost[] }) {
   return (
     <>
       <Head>
