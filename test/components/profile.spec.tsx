@@ -9,12 +9,11 @@ describe("Profile component", () => {
     body = render(<Profile />);
   });
 
-  it("has a display picture", () => {
+  it("renders with the correct display picture", () => {
     const image = body.getByAltText(
       "me enjoying the scenery of Zakynthos town"
     );
     expect(image).toBeInTheDocument();
-
     expect(image.getAttribute("src")).toContain("pfp.jpg");
   });
 });
