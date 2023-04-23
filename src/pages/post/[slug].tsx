@@ -1,5 +1,4 @@
 import Comments from "@/components/Comments";
-import { BlogPostMetadata } from "@/shared/models";
 import fs from "fs";
 import matter from "gray-matter";
 import md from "markdown-it";
@@ -18,7 +17,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps(props: { params: BlogPostMetadata }) {
+export async function getStaticProps(props: { params: any }) {
   const fileName = fs.readFileSync(`posts/${props.params.slug}.md`, "utf-8");
   const { data: frontmatter, content } = matter(fileName);
   return {
@@ -30,7 +29,7 @@ export async function getStaticProps(props: { params: BlogPostMetadata }) {
 }
 
 export default function PostPage(props: {
-  frontmatter: BlogPostMetadata;
+  frontmatter: any;
   content: any;
 }) {
   return (
