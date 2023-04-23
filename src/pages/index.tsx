@@ -1,11 +1,10 @@
-import { PostService } from "@/shared/services/PostService";
 import Head from "next/head";
-import { RecentPost } from "../components/RecentPost";
+import { RecentPost } from "@/components/RecentPost";
 import { buildPageTitle } from "@/shared/utilities";
+import { getPosts } from "@/core/posts";
 
 export async function getStaticProps() {
-  const service = new PostService();
-  const posts = service.getList().slice(0, 5);
+  const posts = getPosts().slice(0, 5);
   return {
     props: {
       posts,
