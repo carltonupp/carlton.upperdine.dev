@@ -1,4 +1,4 @@
-import Comments from "@/components/Comments";
+import { Comments } from "@/components";
 import { BlogPostMetadata } from "@/core/posts";
 import fs from "fs";
 import matter from "gray-matter";

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { RecentPost } from "@/components/RecentPost";
+import { RecentPost } from "@/components";
 import { buildPageTitle } from "@/core/utils";
 import { getPosts } from "@/core/posts";
 

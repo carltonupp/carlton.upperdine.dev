@@ -1,5 +1,4 @@
-import JobCard from "@/components/JobCard";
-import SkillCard from "@/components/SkillCard";
+import {JobCard, SkillCard} from "@/components";
 import { getJobs, Job } from "@/core/jobs";
 import { getSkills, Skill } from "@/core/skills";
 import { buildPageTitle } from "@/core/utils";

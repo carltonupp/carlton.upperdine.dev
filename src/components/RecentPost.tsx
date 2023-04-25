@@ -11,7 +11,7 @@ interface RecentPostProps {
   frontmatter: FrontMatter;
 }
 
-export function RecentPost({ slug, frontmatter }: RecentPostProps) {
+export default function RecentPost({ slug, frontmatter }: RecentPostProps) {
   return (
     <div className="border border-gray-200 m-2 rounded-xl shadow-lg overflow-hidden flex flex-col">
       <Link href={`/post/${slug}`} id="">

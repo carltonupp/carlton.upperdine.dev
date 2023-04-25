@@ -1,4 +1,4 @@
-import { RecentPost } from "../../src/components/RecentPost";
+import { RecentPost } from "../../src/components";
 import "@testing-library/jest-dom";
 import { RenderResult, render } from "@testing-library/react";
 

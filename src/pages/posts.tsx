@@ -1,4 +1,4 @@
-import { RecentPost } from "@/components/RecentPost";
+import { RecentPost } from "@/components";
 import { BlogPost, getPosts } from "@/core/posts";
 import { buildPageTitle } from "@/core/utils";
 import Head from "next/head";
