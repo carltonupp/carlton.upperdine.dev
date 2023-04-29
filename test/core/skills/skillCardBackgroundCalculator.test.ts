@@ -1,4 +1,4 @@
-import { getStyling } from "../../../src/core/utils";
+import { getStyling } from "../../../src/core/skills";
 
 test("returns green linear gradient given proficiency > 80", () => {
   expect(getStyling(81)).toBe(

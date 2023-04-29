@@ -1,18 +1,18 @@
-import { getStyling } from "../core/utils";
+import { getStyling } from "../core/skills";
 
-export default function SkillCard(props: {
+interface SkillCardProps {
   skillName: string;
   proficiency: number;
-}) {
-  const style = getStyling(props.proficiency);
+}
 
+export default function SkillCard({ proficiency, skillName }: SkillCardProps) {
   return (
     <div
       data-testid="skill-card"
       className="border border-gray-300 rounded-md p-1 text-center"
-      style={{ background: style }}
+      style={{ background: getStyling(proficiency) }}
     >
-      {props.skillName}
+      {skillName}
     </div>
   );
 }

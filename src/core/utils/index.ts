@@ -15,5 +15,3 @@ export function groupBy<T>(list: T[], keyGetter: (item: T) => unknown) {
 export function buildPageTitle(pageName: string) {
   return `${pageName} | Carlton Upperdine`;
 }
-
-export { getStyling } from "./skillCardBackgroundCalculator";
