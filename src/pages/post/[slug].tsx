@@ -29,14 +29,11 @@ export async function getStaticProps(props: { params: BlogPostMetadata }) {
   };
 }
 
-export default function PostPage(props: {
-  frontmatter: any;
-  content: any;
-}) {
+export default function PostPage(props: { frontmatter: any; content: any }) {
   return (
     <>
       <Head>
-        <title>{props.frontmatter.title} by Carlton Upperdine</title>
+        <title>{`${props.frontmatter.title} by Carlton Upperdine`}</title>
       </Head>
       <div className="prose mx-auto w-10/12">
         <h2 className="text-center">{props.frontmatter.title}</h2>
