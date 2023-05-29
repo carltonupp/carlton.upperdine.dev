@@ -1,6 +1,5 @@
-import { Skill } from "@/shared/models";
+import { Skill } from "@/core/skills";
 import { NextApiRequest, NextApiResponse } from "next";
-import jobs from "./jobs";
 
 const skills: Skill[] = [
   {

@@ -1,4 +1,4 @@
-import { Job } from "@/shared/models";
+import { Job } from "@/core/jobs";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 const jobs: Job[] = [
