@@ -1,6 +1,5 @@
 import { Skill } from "./models";
 
-export const getSkills = async (): Promise<Skill[]> => {
-    const res = await fetch("/api/skills");
-    return await res.json();
+export const getSkills = (): Promise<Skill[]> => {
+  return fetch("/api/skills").then((res) => res.json());
 };

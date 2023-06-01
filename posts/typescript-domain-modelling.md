@@ -2,6 +2,7 @@
 title: "Domain modelling with State Machines and TypeScript"
 blurb: "A simple domain-modelling exercise showing off TypeScript's wonderful type system"
 date: "2023-05-28"
+slug: "typescript-domain-modelling"
 ---
 
 For the last few years or so, I have been writing a lot of TypeScript. It has

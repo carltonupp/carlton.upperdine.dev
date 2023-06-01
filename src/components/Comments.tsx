@@ -8,6 +8,7 @@ export default function Comments(props: { post: BlogPostMetadata }) {
     identifier: props.post.slug,
     title: props.post.title,
   };
+  console.log(disqusConfig);
   return (
     <div>
       <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
