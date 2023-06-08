@@ -7,7 +7,7 @@ slug: "operation-result-pattern"
 
 The idea of a binary decision can be found in many places in our field : **true
 **or **false**, **1** or **0**, **tabs** or **spaces** - it's either one or the
-other, though in in the last example there is only real choice...
+other, though in the last example there is only real choice...
 
 We can model a simple binary decision in our code by using a **boolean** type,
 but what do we do when our operation has more than two possible outcomes? In
