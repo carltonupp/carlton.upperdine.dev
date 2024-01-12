@@ -1,36 +1,36 @@
 import Head from "next/head";
-import { RecentPost } from "@/components";
-import { buildPageTitle } from "@/core/utils";
-import { getPosts } from "@/core/posts";
 
-export async function getStaticProps() {
-  const posts = getPosts().slice(0, 5);
-  return {
-    props: {
-      posts,
-    },
-  };
-}
-
-export default function Home(props: { posts: any[] }) {
+export default function Home() {
   return (
     <>
       <Head>
-        <title>{buildPageTitle("Home")}</title>
+        <title>Carlton Upperdine</title>
       </Head>
-      <div className="container">
-        <h1 className="flex justify-center text-2xl">Recent Posts</h1>
-        {props.posts.length < 1 && (
-          <p className="flex justify-center">No posts yet - check in soon!</p>
-        )}
-        <div className="grid justify-center mt-3">
-          {props.posts.map((p) => (
-            <RecentPost
-              key={p.slug}
-              slug={p.slug}
-              frontmatter={p.frontmatter}
-            />
-          ))}
+      <div className="mx-auto w-10/12 md:w-8/12 xl:w-5/12">
+        {/* <h2 className="text-3xl font-bold"></h2> */}
+        <div className="mt-5 text-2xl">
+          <ul>
+            <li className="text-3xl font-bold mb-5 text-center">
+              Hello, I'm Carlton!
+            </li>
+            <li className="mb-5">
+              I am a Software Engineer based in the UK, and have been working in
+              the tech industry since 2011.
+            </li>
+            <li className="mb-5">
+              My primary languages that I use day-to-day are C# and TypeScript
+              but I use whatever tools are required for the job.
+            </li>
+            <li className="mb-5">
+              Outside of work I am a die-hard UFC fan, martial artist and I also
+              play the guitar.
+            </li>
+            <li>
+              On this page, you can find a link to my socials as well as my
+              blog, where I share insights and talk about my experiences as a
+              Software Engineer.
+            </li>
+          </ul>
         </div>
       </div>
     </>
