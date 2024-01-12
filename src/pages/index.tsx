@@ -11,7 +11,7 @@ export default function Home() {
         <div className="mt-5 text-2xl">
           <ul>
             <li className="text-3xl font-bold mb-5 text-center">
-              Hello, I'm Carlton!
+              Hello, I&apos;m Carlton!
             </li>
             <li className="mb-5">
               I am a Software Engineer based in the UK, and have been working in
