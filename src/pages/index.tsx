@@ -7,28 +7,27 @@ export default function Home() {
         <title>Carlton Upperdine</title>
       </Head>
       <div className="mx-auto w-10/12 md:w-8/12 xl:w-5/12">
-        {/* <h2 className="text-3xl font-bold"></h2> */}
         <div className="mt-5 text-2xl">
           <ul>
             <li className="text-3xl font-bold mb-5 text-center">
               Hello, I&apos;m Carlton!
             </li>
             <li className="mb-5">
-              I am a Software Engineer based in the UK, and have been working in
-              the tech industry since 2011.
+              I&apos;m a software engineer based in the UK, having worked in the
+              tech industry since 2011.
             </li>
             <li className="mb-5">
-              My primary languages that I use day-to-day are C# and TypeScript
-              but I use whatever tools are required for the job.
+              My core languages are C# and TypeScript, but I believe in using
+              the right tools for the job.
             </li>
             <li className="mb-5">
-              Outside of work I am a die-hard UFC fan, martial artist and I also
-              play the guitar.
+              Away from my computer, you&apos;ll find me obsessively
+              watching UFC, failing at Latte art, and spending time with my
+              fiancée and two cats.
             </li>
             <li>
-              On this page, you can find a link to my socials as well as my
-              blog, where I share insights and talk about my experiences as a
-              Software Engineer.
+              Check out my socials and blog for insights and experiences from my
+              work as a software engineer. Cheers! 🚀
             </li>
           </ul>
         </div>
